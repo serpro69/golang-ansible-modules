@@ -1,0 +1,26 @@
+---
+- name: set workdir fact
+  set_fact:
+    _collection_dir: "{{ role_path }}/../.."
+
+- name: check go is installed
+  command:
+    cmd: go version
+  register: _go_version
+
+- assert:
+    that: _go_version.rc == 0
+
+- name: build go executable
+  shell:
+    cmd: >-
+      go build -o build/helloworld src/helloworld/helloworld.go
+    chdir: "{{ _collection_dir }}/plugins/modules"
+  register: _pwd
+
+- name: link to executable
+  file:
+    src: "{{ _collection_dir }}/plugins/modules/build/helloworld"
+    path: "{{ _collection_dir }}/plugins/modules/helloworld"
+    state: link
+    force: true
