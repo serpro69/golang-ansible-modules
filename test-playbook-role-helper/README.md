@@ -6,5 +6,6 @@ Runs the `helloworld` module from the collection which is installed from the loc
 
 ```
 ansible-galaxy install -r requirements.yml --force
-ansible-playbook test.yml -v
+ansible-playbook test_one.yml -v
+ansible-playbook test_two.yml -v
 ```

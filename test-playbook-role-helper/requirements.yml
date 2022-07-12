@@ -2,3 +2,6 @@
 collections:
   - source: ../ansible-collection-helloworld/io_github_serpro69/helloworld_go
     type: dir
+  - name: https://github.com/serpro69/golang-ansible-modules.git#/ansible-collection-helloworld/io_github_serpro69/another_helloworld_go
+    type: git
+    version: v0.2.0
