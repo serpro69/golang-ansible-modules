@@ -1,6 +1,12 @@
 # golang-ansible-modules
 
-Experimenting with writing ansible modules using golang.
+Examples of writing ansible modules using golang.
+
+I've never been a fan of dynamic languages in general and Python in particular. But working a lot with Ansible, I do, however, feel that sometimes an *ansible role* doesn't cut it, and it would be better to write a *module*. I've recently started playing around with Golang, and I feel it could potentially be utilized for such a task. Hence, I've made this project to experiment and provide examples on how ansible modules could be written in golang.
+
+*It is worth noting that in many cases python is still much more preferable to use when developing ansible modules.*
+
+We are going to utilize ansible's [binary modules](https://docs.ansible.com/ansible/latest/dev_guide/developing_program_flow_modules.html#binary-modules), and hence, the same principles can be used to write ansible modules in any other programming language that can build code as native executables.For example, one could in theory write ansible modules in java, build them as native images with Graal, and use those images as ansible binary modules. In practice, though, it's probably an overkill to write ansible modules in java.
 
 ## Code Structure
 
