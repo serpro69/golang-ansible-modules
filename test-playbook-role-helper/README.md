@@ -1,6 +1,11 @@
-# test-playbook-local-source
+# test-playbook-role-helper
 
-Runs the `helloworld` module from the collection which is installed from the local directory source.
+Runs the `helloworld` module which is installed by a "helper" role which is distributed as part of the collection.
+
+## Requirements
+
+* Go must be installed on the ansible controller
+  * The role checks for the presence of `go` executable by running `go version`
 
 ## Usage
 

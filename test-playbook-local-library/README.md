@@ -1,6 +1,6 @@
-# test-playbook-local-source
+# test-playbook-local-library
 
-Downloads the `helloworld` module binary and runs it from the playbook.
+Runs the `helloworld` module which downloaded from remote location.
 
 ## Usage
 
