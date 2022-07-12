@@ -1,5 +1,6 @@
 # Ansible Galaxy
 **/galaxy/*
+**/library/*
 
 # IntelliJ
 .idea/

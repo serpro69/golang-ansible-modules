@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  vars:
+    helloworld_ver: '0.1.0'
+
+  tasks:
+    - name: download helloworld module
+      get_url:
+        url: "https://github.com/serpro69/golang-ansible-modules/releases/download/v{{ helloworld_ver }}/helloworld"
+        dest: "{{ playbook_dir }}/library/helloworld"
+        mode: 0755
