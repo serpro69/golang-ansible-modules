@@ -1,0 +1,25 @@
+---
+- name: set workdir fact
+  set_fact:
+    _collection_dir: "{{ role_path }}/../.."
+
+- name: remove binary # this shouldn't be needed generally, but we already have a binary committed to the project
+  file:
+    path: "{{ _collection_dir }}/plugins/modules/helloworld"
+    state: absent
+
+- name: check go is installed
+  command:
+    cmd: go version
+  register: _go_version
+
+- assert:
+    that: _go_version.rc == 0
+
+- name: build go executable
+  shell:
+    cmd: >-
+      go build helloworld.go
+    chdir: "{{ _collection_dir }}/plugins/modules"
+  register: _pwd
+
