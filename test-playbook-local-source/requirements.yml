@@ -1,0 +1,4 @@
+---
+collections:
+  - source: ../ansible-collection-helloworld/io_github_serpro69/helloworld_go
+    type: dir

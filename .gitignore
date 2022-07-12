@@ -1,3 +1,6 @@
+# Ansible Galaxy
+**/galaxy/*
+
 # IntelliJ
 .idea/
 *.iml
@@ -28,3 +31,6 @@ vendor/
 
 # Go workspace file
 go.work
+
+# gitkeep files
+!**/.gitkeep

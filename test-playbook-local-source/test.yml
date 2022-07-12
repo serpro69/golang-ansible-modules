@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  collections:
+    - io_github_serpro69.helloworld_go
+
+  tasks:
+    - name: Hello, World!
+      helloworld:
+
+    - name: Hello, Ansible!
+      helloworld:
+        name: Ansible
+
+    - name: Async Hello, World!
+      helloworld:
+      async: 1
+      poll: 1
+
+    - name: Async Hello, Ansible!
+      helloworld:
+        name: Ansible
+      async: 1
+      poll: 1
