@@ -7,6 +7,7 @@ Experimenting with writing ansible modules using golang.
 This repo consists of the following:
 
 - [ansible-collection-helloworld](ansible-collection-helloworld) - source code for a basic "hello-world" ansible collection
+- [test-playbook-local-library](test-playbook-local-library) - a test playbook that runs the `helloworld` module which is downloaded to the ansible controller.
 - [test-playbook-local-source](test-playbook-local-source) - a test playbook that runs the `helloworld` module from the collection which is installed from the local directory source.
 
 ## Limitations
