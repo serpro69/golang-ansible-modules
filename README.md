@@ -25,7 +25,34 @@ There are basically two possibilities to use standalone modules written in go, t
   - it could be desirable to download these to a `library` dir relative to the playbook: `{{ playbook_dir }}/library/`, in this case binaries should be picked up automatically by ansible
   - if binaries are downloaded to some "custom" location, then [`ANSIBLE_LIBRARY`](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#default-module-path) config needs to be modified to include that directory
 
-Both of the above have their pros and cons, hence the best approach needs to be evaluated on a case-by-case basis.
+Both of the above have their pros and cons:
+
+* pre-compiled binaries committed to source code and distributed as part of the collection
+  * pros:
+    * simple installation (via `ansible-galaxy`)
+    * easy to distribute since binaries (effectively - modules) are part of a collection
+    * better suited for public usage
+  * cons:
+    * binaries committed with the code
+    * could lead to a more complicated build/release process since you need to ensure to always update and commit the binary when releasing new version of a collection; otherwise source code of a module and executable might differ
+    * could be harder to debug; but this applies to any kind of binary module really
+* downloaded binaries
+  * pros:
+    * no binaries in git
+    * not hard to distribute if collection contains only go-based modules but might but still more suitable for internal (non-public) code
+    * better suited for internal usage
+  * cons:
+    * installation requires a separate playbook, so you'll most likely end up with 1 extra command:
+      ```
+      ansible-galaxy install ... # installs "regular" dependencies
+      ansible-playbook libraries.yml # downloads go-based modules locally <- extra step
+      ansible-playbook main.yml # main play
+      ```
+    * more complicated release for artifacts if they're part of a collection
+      * need to build only Go-based modules and filter binaries to publish
+    * as a consequence of the above, it might not make much sense to store modules as part of an ansible collection that also contains modules written in python and/or other ansible roles
+
+Hence, the best approach needs to be evaluated on a case-by-case basis.
 
 There's another workaround which also works. We can add a "role" to the collection which will build the binaries at runtime. The benefits of this approach is that we do not need to store binaries in git and the binary is built automatically for the target system on which ansible is running. It does not look very pretty, but it works.
 
