@@ -8,6 +8,7 @@ I've never been a fan of dynamic languages in general and Python in particular. 
 
 We are going to utilize ansible's [binary modules](https://docs.ansible.com/ansible/latest/dev_guide/developing_program_flow_modules.html#binary-modules), and hence, the same principles can be used to write ansible modules in any other programming language that can build code as native executables.For example, one could in theory write ansible modules in java, build them as native images with Graal, and use those images as ansible binary modules. In practice, though, it's probably an overkill to write ansible modules in java.
 
+You might also be interested in [writing ansible modules in kotlin](https://github.com/serpro69/kotlin-ansible-modules)
 ## Code Structure
 
 This repo consists of the following:
