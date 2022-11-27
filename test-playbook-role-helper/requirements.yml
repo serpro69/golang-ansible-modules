@@ -5,3 +5,5 @@ collections:
   - name: https://github.com/serpro69/golang-ansible-modules.git#/ansible-collection-helloworld/io_github_serpro69/another_helloworld_go
     type: git
     version: v0.2.0
+  - source: ../ansible-collection-helloworld/io_github_serpro69/helloworld_go_better_error_handling
+    type: dir

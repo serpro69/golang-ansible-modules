@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+cat << EOF
+{
+"msg":"This is a golang-based module which needs to be pre-built before it can be used. See documentation for more details",
+"failed":true,
+"changed":false,
+"stdout":"",
+"stderr":"Module has not been built"
+}
+EOF

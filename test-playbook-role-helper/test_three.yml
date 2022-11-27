@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  collections:
+    - io_github_serpro69.helloworld_go_better_error_handling
+
+  # NB! we don't pre-build the module, hence it will fail.
+  # But using shell as the "placeholder plugin" gives us a way to customize what we return from it,
+  # including a better error message than ansible's "missing interpreter" error.
+
+  tasks:
+    - name: Hello, World!
+      helloworld:
+      failed_when: _output.stderr != "Module has not been built"
+      register: _output
